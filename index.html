@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Visibility API</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .status { color: green; font-weight: bold; }
+        .endpoint { background: #f5f5f5; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>AI Visibility API - Serverless Deployment</h1>
+    <p class="status">✅ Server is running and ready for WordPress plugin connections</p>
+    
+    <h2>Available Endpoints:</h2>
+    <div class="endpoint">
+        <strong>Health Check:</strong> <a href="/api/health">/api/health</a>
+    </div>
+    <div class="endpoint">
+        <strong>Website Analysis:</strong> POST /api/analyze
+    </div>
+    
+    <h2>Test Health Check:</h2>
+    <button onclick="testHealth()">Test API Health</button>
+    <div id="result"></div>
+    
+    <script>
+    async function testHealth() {
+        const result = document.getElementById('result');
+        result.innerHTML = 'Testing...';
+        
+        try {
+            const response = await fetch('/api/health');
+            const data = await response.json();
+            result.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        } catch (error) {
+            result.innerHTML = 'Error: ' + error.message;
+        }
+    }
+    </script>
+</body>
+</html>
