@@ -1,0 +1,8 @@
+{
+  "name": "ai-visibility-vercel-api",
+  "version": "2.2.0",
+  "description": "AI Visibility API - Vercel Serverless Functions",
+  "engines": {
+    "node": "18"
+  }
+}
